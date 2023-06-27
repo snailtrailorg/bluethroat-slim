@@ -1,0 +1,58 @@
+# Kconfig file for bluethroat-slim
+
+menu "Bluethroat Slim configuration"
+
+    menu "Display resolution"
+
+        config LV_HOR_RES_MAX
+            int "Display horizontal resolution"
+            default 240
+        config LV_VER_RES_MAX
+            int "Display vertical resolution"
+            default 135
+
+    endmenu
+
+    menu "Enable user-defined fonts"
+
+        config ANTONIO_REGULAR_12
+            bool "Enable Antonio Regular 12"
+        config ANTONIO_REGULAR_14
+            bool "Enable Antonio Regular 14"
+        config ANTONIO_REGULAR_16
+            bool "Enable Antonio Regular 16"
+            default y
+        config ANTONIO_REGULAR_18
+            bool "Enable Antonio Regular 18"
+        config ANTONIO_REGULAR_20
+            bool "Enable Antonio Regular 20"
+        config ANTONIO_REGULAR_24
+            bool "Enable Antonio Regular 24"
+        config ANTONIO_REGULAR_36
+            bool "Enable Antonio Regular 36"
+        config ANTONIO_REGULAR_48
+            bool "Enable Antonio Regular 48"
+        config ANTONIO_REGULAR_64
+            bool "Enable Antonio Regular 64"
+            default y
+
+        config AWESOME_640_FREE_SOLID_12
+            bool "Enable Awesome 6.40 Free Solid 12"
+        config AWESOME_640_FREE_SOLID_14
+            bool "Enable Awesome 6.40 Free Solid 14"
+        config AWESOME_640_FREE_SOLID_16
+            bool "Enable Awesome 6.40 Free Solid 16"
+            default y
+
+        config AGUAFINA_SCRIPT_REGULAR_10
+            bool "Aguafina Script Regular 10"
+            default y
+        config AGUAFINA_SCRIPT_REGULAR_12
+            bool "Aguafina Script Regular 12"
+
+    endmenu
+
+    menu "Enablel user-defined images"
+    endmenu
+
+endmenu
