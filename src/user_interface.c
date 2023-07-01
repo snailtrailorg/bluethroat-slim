@@ -14,8 +14,6 @@ static struct {
     lv_obj_t * speed_meter;
     lv_obj_t * imu_meter;
 
-    lv_obj_t * gps_icon;
-    lv_obj_t * compass_icon;
     lv_obj_t * microphone_icon;
     lv_obj_t * speaker_icon;
     lv_obj_t * headphone_icon;
@@ -29,7 +27,6 @@ static struct {
     lv_obj_t * temperature_label;
     lv_obj_t * humidity_label;
     lv_obj_t * altitude_label;
-    lv_obj_t * website_label;
     lv_obj_t * compass_meter;
 } ui;
 
@@ -46,31 +43,28 @@ void user_interface_init(void) {
     lv_obj_set_style_bg_color(screen, lv_color_black(), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     LV_IMG_DECLARE(compass_face);
-    ui.compass_meter = lvg_draw_image(screen, screen, LV_ALIGN_TOP_LEFT, 143, 54, 75, 75, 37, 37, &compass_face);
+    ui.compass_meter = lvg_draw_image(screen, screen, LV_ALIGN_TOP_LEFT, 143, 30, 75, 75, 37, 37, &compass_face);
+    lv_img_set_angle(ui.compass_meter, 450);
 
-    lvgl_draw_line(screen, 20, 24, 220, 24, 1, lv_color_make(127, 127, 127));
-    lvgl_draw_line(screen, 20, 48, 220, 48, 1, lv_color_make(127, 127, 127));
-    lvgl_draw_line(screen, 20, 116, 140, 116, 1, lv_color_make(127, 127, 127));
+    lvgl_draw_line(screen, 20, 28, 220, 28, 1, lv_color_make(127, 127, 127));
+    lvgl_draw_line(screen, 20, 108, 220, 108, 1, lv_color_make(127, 127, 127));
 
     ui.speed_meter = lvgl_draw_bar(screen, screen, LV_ALIGN_TOP_LEFT, 4, 4, 12, 127, lv_color_make(63, 63, 63), lv_color_make(255, 0, 0), lv_color_make(0, 255, 0));
     ui.imu_meter = lvgl_draw_bar(screen, screen, LV_ALIGN_TOP_LEFT, 224, 4, 12, 127, lv_color_make(63, 63, 63), lv_color_make(255, 0, 0), lv_color_make(0, 255, 0));
 
-    ui.battery_icon = lvgl_draw_icon(screen, screen, LV_ALIGN_TOP_RIGHT, -22, 4, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_BATTERY_HALF);
+    ui.battery_icon = lvgl_draw_icon(screen, screen, LV_ALIGN_TOP_RIGHT, -24, 8, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_BATTERY_HALF);
     ui.charge_icon = lvgl_draw_icon(screen, ui.battery_icon, LV_ALIGN_CENTER, 0, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_BOLT);
-    ui.xctrack_icon = lvgl_draw_icon(screen, ui.battery_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_MOBILE_SCREEN_BUTTON);
-    ui.headphone_icon = lvgl_draw_icon(screen, ui.xctrack_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_HEADPHONES);
-    ui.speaker_icon = lvgl_draw_icon(screen, ui.headphone_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_VOLUME_HIGH);
-    ui.microphone_icon = lvgl_draw_icon(screen, ui.speaker_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_MICROPHONE);
-    //ui.compass_icon = lvgl_draw_icon(screen, ui.microphone_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_COMPASS);
-    //ui.gps_icon = lvgl_draw_icon(screen, ui.compass_icon, LV_ALIGN_OUT_LEFT_TOP, -6, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_SATELLITE);
+    ui.xctrack_icon = lvgl_draw_icon(screen, ui.battery_icon, LV_ALIGN_OUT_LEFT_TOP, -8, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_MOBILE_SCREEN_BUTTON);
+    ui.headphone_icon = lvgl_draw_icon(screen, ui.xctrack_icon, LV_ALIGN_OUT_LEFT_TOP, -8, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_HEADPHONES);
+    ui.speaker_icon = lvgl_draw_icon(screen, ui.headphone_icon, LV_ALIGN_OUT_LEFT_TOP, -8, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_VOLUME_HIGH);
+    ui.microphone_icon = lvgl_draw_icon(screen, ui.speaker_icon, LV_ALIGN_OUT_LEFT_TOP, -8, 0, &awesome6_16, lv_palette_main(LV_PALETTE_GREY), LVGL_SYMBOL_MICROPHONE);
 
-    ui.clock_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 22, 4, 52, 16, LV_TEXT_ALIGN_LEFT, lv_color_make(47, 218, 100), &antonio_regular_16, "23:59:59");
-    ui.speed_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 20, 28, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(47, 202, 218), &antonio_regular_16, "+99.99");
-    ui.pressure_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 70, 28, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(47, 146, 218), &antonio_regular_16, "1013.25");
-    ui.temperature_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 120, 28, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(190, 175, 20), &antonio_regular_16, "+25.8");
-    ui.humidity_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 170, 28, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(38, 176, 140), &antonio_regular_16, "99.9%");
-    ui.altitude_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 20, 53, 120, 60, LV_TEXT_ALIGN_CENTER, lv_color_make(192, 192, 192), &antonio_regular_60, "9999");
-    ui.website_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 20, 118, 120, 10, LV_TEXT_ALIGN_CENTER, lv_color_make(47, 218, 100), &antonio_regular_10, "http://www.snailtrail.org");
+    ui.clock_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 24, 8, 52, 16, LV_TEXT_ALIGN_LEFT, lv_color_make(47, 218, 100), &antonio_regular_16, "23:59:59");
+    ui.altitude_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 20, 35, 124, 68, LV_TEXT_ALIGN_CENTER, lv_color_make(192, 192, 192), &antonio_regular_68, "9999");
+    ui.pressure_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 20, 112, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(47, 146, 218), &antonio_regular_16, "1013.25");
+    ui.speed_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 70, 112, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(47, 202, 218), &antonio_regular_16, "+99.99");
+    ui.temperature_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 120, 112, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(190, 175, 20), &antonio_regular_16, "+25.8");
+    ui.humidity_label = lvgl_draw_label(screen, screen, LV_ALIGN_TOP_LEFT, 170, 112, 50, 16, LV_TEXT_ALIGN_CENTER, lv_color_make(38, 176, 140), &antonio_regular_16, "99.9%");
 
     lvgl_release_token();
 }
@@ -160,9 +154,9 @@ static lv_obj_t * lvg_draw_image(lv_obj_t * parent, lv_obj_t * ref, lv_align_t r
 
     lv_img_set_src(image, image_src);
 
-    lv_obj_set_size(image, 75, 75);
+    lv_obj_set_size(image, w, h);
     lv_img_set_pivot(image, cx, cy);
-    lv_obj_align_to(image, ref, ref_align, 143, 54);
+    lv_obj_align_to(image, ref, ref_align, x, y);
 
     return image;
 }

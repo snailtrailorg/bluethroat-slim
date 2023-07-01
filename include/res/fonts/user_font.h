@@ -84,6 +84,34 @@
         #define ANTONIO_REGULAR_64 0
     #endif
 #endif
+#ifndef ANTONIO_REGULAR_68
+    #ifdef CONFIG_ANTONIO_REGULAR_68
+        #define ANTONIO_REGULAR_68 CONFIG_ANTONIO_REGULAR_68
+    #else
+        #define ANTONIO_REGULAR_68 0
+    #endif
+#endif
+#ifndef ANTONIO_REGULAR_72
+    #ifdef CONFIG_ANTONIO_REGULAR_72
+        #define ANTONIO_REGULAR_72 CONFIG_ANTONIO_REGULAR_72
+    #else
+        #define ANTONIO_REGULAR_72 0
+    #endif
+#endif
+#ifndef ANTONIO_REGULAR_80
+    #ifdef CONFIG_ANTONIO_REGULAR_80
+        #define ANTONIO_REGULAR_80 CONFIG_ANTONIO_REGULAR_80
+    #else
+        #define ANTONIO_REGULAR_80 0
+    #endif
+#endif
+#ifndef ANTONIO_REGULAR_96
+    #ifdef CONFIG_ANTONIO_REGULAR_96
+        #define ANTONIO_REGULAR_96 CONFIG_ANTONIO_REGULAR_96
+    #else
+        #define ANTONIO_REGULAR_96 0
+    #endif
+#endif
 
 #ifndef AWESOME6_12
     #ifdef CONFIG_AWESOME6_12
@@ -139,6 +167,18 @@ LV_FONT_DECLARE(antonio_regular_60)
 #endif
 #if ANTONIO_REGULAR_64
 LV_FONT_DECLARE(antonio_regular_64)
+#endif
+#if ANTONIO_REGULAR_68
+LV_FONT_DECLARE(antonio_regular_68)
+#endif
+#if ANTONIO_REGULAR_72
+LV_FONT_DECLARE(antonio_regular_72)
+#endif
+#if ANTONIO_REGULAR_80
+LV_FONT_DECLARE(antonio_regular_80)
+#endif
+#if ANTONIO_REGULAR_96
+LV_FONT_DECLARE(antonio_regular_96)
 #endif
 
 #if AWESOME6_12

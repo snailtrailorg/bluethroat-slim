@@ -37,9 +37,17 @@ menu "Bluethroat Slim configuration"
             bool "Enable Antonio Regular 48"
         config ANTONIO_REGULAR_60
             bool "Enable Antonio Regular 60"
-            default y
         config ANTONIO_REGULAR_64
             bool "Enable Antonio Regular 64"
+        config ANTONIO_REGULAR_68
+            bool "Enable Antonio Regular 68"
+            default y
+        config ANTONIO_REGULAR_72
+            bool "Enable Antonio Regular 72"
+        config ANTONIO_REGULAR_80
+            bool "Enable Antonio Regular 80"
+        config ANTONIO_REGULAR_96
+            bool "Enable Antonio Regular 96"
 
         config AWESOME6_12
             bool "Enable Awesome 6.40 Free Solid 12"
