@@ -15,6 +15,9 @@ menu "Bluethroat Slim configuration"
 
     menu "Enable user-defined fonts"
 
+        config ANTONIO_REGULAR_10
+            bool "Enable Antonio Regular 10"
+            default y
         config ANTONIO_REGULAR_12
             bool "Enable Antonio Regular 12"
         config ANTONIO_REGULAR_14
@@ -32,23 +35,19 @@ menu "Bluethroat Slim configuration"
             bool "Enable Antonio Regular 36"
         config ANTONIO_REGULAR_48
             bool "Enable Antonio Regular 48"
+        config ANTONIO_REGULAR_60
+            bool "Enable Antonio Regular 60"
+            default y
         config ANTONIO_REGULAR_64
             bool "Enable Antonio Regular 64"
-            default y
 
-        config AWESOME_640_FREE_SOLID_12
+        config AWESOME6_12
             bool "Enable Awesome 6.40 Free Solid 12"
-        config AWESOME_640_FREE_SOLID_14
+        config AWESOME6_14
             bool "Enable Awesome 6.40 Free Solid 14"
-        config AWESOME_640_FREE_SOLID_16
+        config AWESOME6_16
             bool "Enable Awesome 6.40 Free Solid 16"
             default y
-
-        config AGUAFINA_SCRIPT_REGULAR_10
-            bool "Aguafina Script Regular 10"
-            default y
-        config AGUAFINA_SCRIPT_REGULAR_12
-            bool "Aguafina Script Regular 12"
 
     endmenu
 

@@ -4,6 +4,16 @@
 #include "lvgl/lvgl.h"
 #endif
 
+#include "user_font_symbols.h"
+#include "user_font_utils.h"
+
+#ifndef ANTONIO_REGULAR_10
+    #ifdef CONFIG_ANTONIO_REGULAR_10
+        #define ANTONIO_REGULAR_10 CONFIG_ANTONIO_REGULAR_10
+    #else
+        #define ANTONIO_REGULAR_10 0
+    #endif
+#endif
 #ifndef ANTONIO_REGULAR_12
     #ifdef CONFIG_ANTONIO_REGULAR_12
         #define ANTONIO_REGULAR_12 CONFIG_ANTONIO_REGULAR_12
@@ -60,6 +70,13 @@
         #define ANTONIO_REGULAR_48 0
     #endif
 #endif
+#ifndef ANTONIO_REGULAR_60
+    #ifdef CONFIG_ANTONIO_REGULAR_60
+        #define ANTONIO_REGULAR_60 CONFIG_ANTONIO_REGULAR_60
+    #else
+        #define ANTONIO_REGULAR_60 0
+    #endif
+#endif
 #ifndef ANTONIO_REGULAR_64
     #ifdef CONFIG_ANTONIO_REGULAR_64
         #define ANTONIO_REGULAR_64 CONFIG_ANTONIO_REGULAR_64
@@ -68,43 +85,31 @@
     #endif
 #endif
 
-#ifndef AWESOME_640_FREE_SOLID_12
-    #ifdef CONFIG_AWESOME_640_FREE_SOLID_12
-        #define AWESOME_640_FREE_SOLID_12 CONFIG_AWESOME_640_FREE_SOLID_12
+#ifndef AWESOME6_12
+    #ifdef CONFIG_AWESOME6_12
+        #define AWESOME6_12 CONFIG_AWESOME6_12
     #else
-        #define AWESOME_640_FREE_SOLID_12 0
+        #define AWESOME6_12 0
     #endif
 #endif
-#ifndef AWESOME_640_FREE_SOLID_14
-    #ifdef CONFIG_AWESOME_640_FREE_SOLID_14
-        #define AWESOME_640_FREE_SOLID_14 CONFIG_AWESOME_640_FREE_SOLID_14
+#ifndef AWESOME6_14
+    #ifdef CONFIG_AWESOME6_14
+        #define AWESOME6_14 CONFIG_AWESOME6_14
     #else
-        #define AWESOME_640_FREE_SOLID_14 0
+        #define AWESOME6_14 0
     #endif
 #endif
-#ifndef AWESOME_640_FREE_SOLID_16
-    #ifdef CONFIG_AWESOME_640_FREE_SOLID_16
-        #define AWESOME_640_FREE_SOLID_16 CONFIG_AWESOME_640_FREE_SOLID_16
+#ifndef AWESOME6_16
+    #ifdef CONFIG_AWESOME6_16
+        #define AWESOME6_16 CONFIG_AWESOME6_16
     #else
-        #define AWESOME_640_FREE_SOLID_16 0
-    #endif
-#endif
-
-#ifndef AGUAFINA_SCRIPT_REGULAR_10
-    #ifdef CONFIG_AGUAFINA_SCRIPT_REGULAR_10
-        #define AGUAFINA_SCRIPT_REGULAR_10 CONFIG_AGUAFINA_SCRIPT_REGULAR_10
-    #else
-        #define AGUAFINA_SCRIPT_REGULAR_10 0
-    #endif
-#endif
-#ifndef AGUAFINA_SCRIPT_REGULAR_12
-    #ifdef CONFIG_AGUAFINA_SCRIPT_REGULAR_12
-        #define AGUAFINA_SCRIPT_REGULAR_12 CONFIG_AGUAFINA_SCRIPT_REGULAR_12
-    #else
-        #define AGUAFINA_SCRIPT_REGULAR_12 0
+        #define AWESOME6_16 0
     #endif
 #endif
 
+#if ANTONIO_REGULAR_10
+LV_FONT_DECLARE(antonio_regular_10)
+#endif
 #if ANTONIO_REGULAR_12
 LV_FONT_DECLARE(antonio_regular_12)
 #endif
@@ -129,23 +134,19 @@ LV_FONT_DECLARE(antonio_regular_36)
 #if ANTONIO_REGULAR_48
 LV_FONT_DECLARE(antonio_regular_48)
 #endif
+#if ANTONIO_REGULAR_60
+LV_FONT_DECLARE(antonio_regular_60)
+#endif
 #if ANTONIO_REGULAR_64
 LV_FONT_DECLARE(antonio_regular_64)
 #endif
 
-#if AWESOME_640_FREE_SOLID_12
-LV_FONT_DECLARE(awesome_640_free_solid_12)
+#if AWESOME6_12
+LV_FONT_DECLARE(awesome6_12)
 #endif
-#if AWESOME_640_FREE_SOLID_14
-LV_FONT_DECLARE(awesome_640_free_solid_14)
+#if AWESOME6_14
+LV_FONT_DECLARE(awesome6_14)
 #endif
-#if AWESOME_640_FREE_SOLID_16
-LV_FONT_DECLARE(awesome_640_free_solid_16)
-#endif
-
-#if AGUAFINA_SCRIPT_REGULAR_10
-LV_FONT_DECLARE(aguafina_script_regular_10)
-#endif
-#if AGUAFINA_SCRIPT_REGULAR_12
-LV_FONT_DECLARE(aguafina_script_regular_12)
+#if AWESOME6_16
+LV_FONT_DECLARE(awesome6_16)
 #endif

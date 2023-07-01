@@ -1,4 +1,5 @@
-Define  Symbol                      UTF8        Left Comments   UnicodeDEC  UnicodeHEX  Right Comments
+/*-------------------------------------------------------------------------------------------------------
+Define  Symbol                      UTF8        Left Comments   UnicodeDEC  UnicodeHEX  Right Comments */
 #define lv_symbol_exclamation                                       "\x21"      /*  33, 0x21    */
 #define lv_symbol_hashtag                                           "\x23"      /*  35, 0x23    */
 #define lv_symbol_dollar_sign                                       "\x24"      /*  36, 0x24    */
