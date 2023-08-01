@@ -2,3 +2,4 @@
 .platformio
 .vscode
 dependencies.lock
+*old
