@@ -51,10 +51,9 @@ SOFTWARE.
 #endif
 
 
-static const char* TAG = I2C_TAG;
+static const char * TAG = ESP_I2C_TAG;
 
-static SemaphoreHandle_t I2C_FN(_local_mutex)[2] = { NULL, NULL };
-static SemaphoreHandle_t* I2C_FN(_mutex) = &I2C_FN(_local_mutex)[0];
+static SemaphoreHandle_t eps_i2c_mutex[2] = { NULL, NULL };
 
 static const uint8_t ACK_CHECK_EN = 1;
 
