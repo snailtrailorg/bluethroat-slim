@@ -30,7 +30,7 @@
 #include "lvgl/lvgl.h"
 #endif
 #include "lvgl_helpers.h"
-#include "adapter/lvgl_adapter.h"
+#include "adapters/lvgl_adapter.h"
 
 /**********************
  *  STATIC PROTOTYPES

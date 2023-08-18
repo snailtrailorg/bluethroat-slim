@@ -7,8 +7,6 @@ extern "C" {
 // Only here to get the I2C_NUM_0 and I2C_NUM_1 defines.
 #include <driver/i2c.h>
 
-#define ESP_I2C_TAG     "ESP_I2C"
-
 #ifdef CONFIG_ESP_I2C_PORT_0_ENABLED
     #ifdef CONFIG_ESP_I2C_PORT_0_SDA
         #define ESP_I2C_PORT_0_SDA CONFIG_ESP_I2C_PORT_0_SDA
@@ -51,13 +49,13 @@ extern "C" {
     #endif
 #endif
 
-#define I2C_ADDR_10 ( 1 << 15 )
-#define I2C_REG_16  ( 1 << 31 )
-#define I2C_NO_REG  ( 1 << 30 )
+#define ESP_I2C_ADDR_10_BIT_FLAG    ((uint16_t)(0x8000))
+#define ESP_I2C_REG_16_BIT_FLAG     ((uint32_t)(0x80000000))
+#define ESP_I2C_NO_REG_FLAG         ((uint32_t)(0x40000000))
 
 esp_err_t esp_i2c_init(i2c_port_t port);
-esp_err_t esp_i2c_read(i2c_port_t port, uint16_t addr, uint32_t reg, uint8_t *buffer, uint16_t size);
-esp_err_t esp_i2c_write(i2c_port_t port, uint16_t addr, uint32_t reg, const uint8_t *buffer, uint16_t size);
+esp_err_t esp_i2c_read(i2c_port_t port, uint16_t addr, uint32_t reg, uint8_t * buffer, uint16_t size);
+esp_err_t esp_i2c_write(i2c_port_t port, uint16_t addr, uint32_t reg, const uint8_t * buffer, uint16_t size);
 esp_err_t esp_i2c_close(i2c_port_t port);
 esp_err_t esp_i2c_lock(i2c_port_t port);
 esp_err_t esp_i2c_unlock(i2c_port_t port);

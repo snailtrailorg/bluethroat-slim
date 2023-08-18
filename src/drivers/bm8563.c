@@ -8,7 +8,8 @@
     #include "lvgl_i2c/i2c_manager.h"
 #endif
 
-#include "driver/bm8563.h"
+#include "drivers/esp_i2c.h"
+#include "drivers/bm8563.h"
 
 static uint8_t bcd_to_uint8(uint8_t bcd);
 static inline uint16_t calc_year_day(uint16_t year, uint8_t month, uint8_t day);

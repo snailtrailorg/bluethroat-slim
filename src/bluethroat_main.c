@@ -1,4 +1,4 @@
-#include "adapter/lvgl_adapter.h"
+#include "adapters/lvgl_adapter.h"
 
 #include "bluethroat_ui.h"
 #include  "bluethroat_clock.h"

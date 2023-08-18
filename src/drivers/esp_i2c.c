@@ -36,6 +36,8 @@ SOFTWARE.
 #include "freertos/task.h"
 #include <driver/i2c.h>
 
+#include <sdkconfig.h>
+
 #include "drivers/esp_i2c.h"
 
 
@@ -56,11 +58,11 @@ static const char * esp_i2c_tag = "ESP_I2C";
 #define ESP_I2C_LOGD(format, ...) ESP_LOGD(esp_i2c_tag, format, ##__VA_ARGS__)
 #define ESP_I2C_LOGV(format, ...) ESP_LOGV(esp_i2c_tag, format, ##__VA_ARGS__)
 
-#ifdef _DEBUG
+//#ifdef _DEBUG
 #define ESP_I2C_ASSERT(condition, format, ...) do { if (!(condition)) { ESP_I2C_LOGE(format, ##__VA_ARGS__); } } while (0)
-#else
-#define ESP_I2C_ASSERT(condition, format, ...) void
-#endif
+//#else
+//#define ESP_I2C_ASSERT(condition, format, ...) void
+//#endif
 
 static SemaphoreHandle_t eps_i2c_mutex[I2C_NUM_MAX];
 
@@ -98,7 +100,7 @@ esp_err_t esp_i2c_init(i2c_port_t port) {
 		conf.mode = I2C_MODE_MASTER;
 
 		if (port == I2C_NUM_0) {
-			conf.sda_io_num = CONFIG_I2C_MANAGER_0_SDA;
+			conf.sda_io_num = CONFIG_ESP_I2C_PORT_0_SDA;
 			conf.scl_io_num = CONFIG_I2C_MANAGER_0_SCL;
 			conf.sda_pullup_en = I2C_MANAGER_0_PULLUPS ? GPIO_PULLUP_ENABLE : GPIO_PULLUP_DISABLE;
 			conf.scl_pullup_en = conf.sda_pullup_en;

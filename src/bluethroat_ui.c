@@ -7,7 +7,7 @@
 #endif
 #include "lvgl_helpers.h"
 
-#include "adapter/lvgl_adapter.h"
+#include "adapters/lvgl_adapter.h"
 #include "res/fonts/user_font.h"
 
 static struct {
